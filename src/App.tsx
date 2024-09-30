@@ -1,5 +1,5 @@
 import './reset.css';
-import './App.css'
+import './App.css';
 
 import { useEffect, useState } from 'react';
 
@@ -7,26 +7,29 @@ import { useEffect, useState } from 'react';
 import { PostList } from './components/PostList.tsx';
 import { fetchPosts, type Post } from './utils.ts';
 
-
 export const App = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [postId, setPostId] = useState<number>();
 
   useEffect(() => {
     fetchPosts()
-      .then((data)=>{
-        setPosts(data)
-        setPostId(data[0]?.id)
+      .then((data) => {
+        setPosts(data);
+        setPostId(data[0]?.id);
       })
-      .catch((error: unknown)=>{
+      .catch((error: unknown) => {
         console.error('Error fetching posts:', error);
-      })
+      });
   }, []);
 
-  return(
+  return (
     <div className="App">
-      <PostList posts={posts} postId={postId} onClickPost={setPostId}></PostList>
+      <PostList
+        posts={posts}
+        postId={postId}
+        onClickPost={setPostId}
+      ></PostList>
       {/*<PostDetail></PostDetail>*/}
     </div>
-  )
+  );
 };
