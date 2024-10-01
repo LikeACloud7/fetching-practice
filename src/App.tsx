@@ -3,7 +3,7 @@ import './App.css';
 
 import { useEffect, useState } from 'react';
 
-// import { PostDetail } from './components/PostDetail.tsx';
+import { PostDetail } from './components/PostDetail.tsx';
 import { PostList } from './components/PostList.tsx';
 import { fetchPosts, type Post } from './utils.ts';
 
@@ -29,7 +29,7 @@ export const App = () => {
         postId={postId}
         onClickPost={setPostId}
       ></PostList>
-      {/*<PostDetail></PostDetail>*/}
+      <PostDetail post={posts.find((p) => p.id === postId)}></PostDetail>
     </div>
   );
 };

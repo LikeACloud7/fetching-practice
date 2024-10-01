@@ -2,9 +2,9 @@ import type { Post } from '../utils.ts';
 
 export const PostList = ({ posts, postId, onClickPost }: PostListProps) => {
   return (
-    <div>
-      <h1>포스트 목록</h1>
-      <div className="post-list">
+    <div className="post-list">
+      <h1>Posts</h1>
+      <div className="post-list-container">
         {posts.map((post) => (
           <h3
             key={post.id}
